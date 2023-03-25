@@ -8,6 +8,7 @@ public class TaskService {
     private Collection<Task> removedTasks;
 
     public TaskService(Map<Integer,Task> taskMap) {
+        this.taskMap=taskMap;
     }
 
 

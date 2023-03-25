@@ -10,6 +10,8 @@ public class TestDailyPlanner {
         System.out.println("=====Ежедневник. Записывайте свои планы на будущие=====");
         String choiceClose = "н";
         String answer;
+        Integer count = 0;
+
 
         Map<Integer, String> choise = new HashMap<>();
         do {
@@ -54,17 +56,16 @@ public class TestDailyPlanner {
 
             choise.put(3, choiseType.get(types));
             String elementTypes = choiseType.get(types);
-            System.out.println(elementTypes+"------");
 
             System.out.println("Вы выбрали " + choiseType.get(types));
             ///////////////////////////////////////////////////////////////////////////////////
 
             Map<Integer, String> choiseAppears = new HashMap<>();
-            choiseAppears.put(1, "Здоровье");
-            choiseAppears.put(2, "Отдых");
-            choiseAppears.put(3, "Работа");
-            choiseAppears.put(4, "Семья");
-            choiseAppears.put(5, "Хобби");
+            choiseAppears.put(1, "Однократная");
+            choiseAppears.put(2, "Ежедневная");
+            choiseAppears.put(3, "Еженедельная");
+            choiseAppears.put(4, "Ежемесячная");
+            choiseAppears.put(5, "Ежегодная");
             System.out.println("Выберите тип события: \n" +
                     "1.Однократная, \n" +
                     "2.Ежедневная \n" +
@@ -73,16 +74,18 @@ public class TestDailyPlanner {
                     "5.Ежегодная, \n");
 
             int appearslns = skanner.nextInt();
+
             choise.put(4, choiseAppears.get(appearslns));
-            String elementAppearslns = choiseTitle.get(appearslns);
+            String elementAppearslns = choiseAppears.get(appearslns);
 
             System.out.println("Вы выбрали " + choiseAppears.get(appearslns) + "\n");
             ////////////////////////
 
             System.out.println("Если вы закончили напишите 'д'. если нет напишите 'н' ");
             answer = skanner.next();
-
-            Task diary = new Task(choiseTitle.get(titles), choiseTitle.get(descriptors), Type.valueOf(choiseType.get(elementTypes)), Appearsln.valueOf(choiseAppears.get(appearslns)));
+//// создаеи объект TaskService и определяем параметры.
+            TaskService taskMap = new TaskService(count,new Task(choiseTitle.get(titles), choiseTitle.get(descriptors), Type.valueOf("work"), Appearsln.valueOf("oneTimeTask"));
+            count++;
         } while (choiceClose.equals(answer));
 
         for (Map.Entry m : choise.entrySet())
