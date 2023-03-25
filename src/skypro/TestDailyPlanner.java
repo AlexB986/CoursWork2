@@ -10,7 +10,6 @@ public class TestDailyPlanner {
         System.out.println("=====Ежедневник. Записывайте свои планы на будущие=====");
         String choiceClose = "н";
         String answer;
-//        Task diary = new Task("kkpp","kkkkk", Type.work,Appearsln.DailyTask);
 
         Map<Integer, String> choise = new HashMap<>();
         do {
@@ -35,7 +34,7 @@ public class TestDailyPlanner {
             choise.put(1, choiseTitle.get(titles));
 
             String elementTitles = choiseTitle.get(titles);
-            System.out.println("Вы выбрали " + choiseTitle.get(titles) + " \n");
+            System.out.println(" Вы выбрали " + choiseTitle.get(titles) + " \n");
             /////////////////////////////////////////////////////////////////////////////////
             System.out.println("Описание события\n");
 
